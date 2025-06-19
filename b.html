@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>
+function kkb() {
+            // LINE跳转逻辑将在此处实现
+            window.open('https://line.me/', '_blank');
+        }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>田端大学 投資学部 - 無料投資講座</title>
+  <link rel="stylesheet" href="css/t5.css"> 
+</head>
+<body>
+    <div class="investment-landing-page-container">
+        <header class="header-section-wrapper">
+            <h1 class="university-brand-title">田端大学 投資学部</h1>
+            
+            <div class="instructor-profile-section">
+                <div class="instructor-avatar-container">
+                    <img src="img/1.jpg" alt="田端信太郎" class="instructor-circular-image">
+                </div>
+                <div class="instructor-credentials-text">
+                    田端信太郎のLINEを追加
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content-section-wrapper">
+            <h2 class="primary-value-proposition-heading">
+                投資でより賢明な決断をしたいですか？<br>
+                無料講座に参加して、科学的な投資手法を習得しましょう！<br>
+                本日限定30名様のみ、私のLINEアカウントを今すぐ追加してください。
+            </h2>
+
+            <button class="interactive-call-to-action-button" onclick="kkb()">
+                今すぐ枠を確保する
+            </button>
+
+            <div class="secondary-content-block-container">
+                <h3 class="motivational-message-heading">
+                    困っている方のお役に立てれば、とても嬉しく思います。
+                </h3>
+                
+                <p class="detailed-benefits-description">
+                    困っている方々のお役に立てれば、私はとても嬉しく思います。そして、一切費用はいただきません。新しい投資手法とテクニックを活用し、投資の根本的なロジックを理解し、自分の未来をコントロールしましょう。<br><br>
+                    
+                    LINEを追加するだけで、無料でブルーチップ株リストを入手できます！その中の3銘柄は来週大幅に上昇する予定です。金融専門家のアドバイスを受け、株式知識を学び、それらを活用して精密な株式投資を行いましょう！
+                </p>
+
+                <button class="interactive-call-to-action-button" onclick="kkb()">
+                    今すぐ枠を確保する
+                </button>
+            </div>
+
+            <div class="legal-disclaimer-section">
+                <h4 class="risk-warning-title">
+                    ⚠️ 重要なリスク警告
+                </h4>
+                
+                <div class="disclaimer-text-content">
+                    • 本サービスは一般的な市場情報のみを提供し、投資アドバイスや推奨を構成するものではありません。<br>
+                    • 金融市場にはリスクが存在し、投資元本の一部または全部を失う可能性があります。<br>
+                    • 表示されている全ての例は過去のデータ分析であり、将来の収益を保証するものではありません。
+                </div>
+
+                <div class="legal-links-container">
+                    <a href="privacy.html" class="legal-agreement-link">プライバシーポリシー</a>
+                    <a href="terms.html" class="legal-agreement-link">利用規約</a>
+                </div>
+            </div>
+        </main>
+
+        <div class="floating-bottom-action-container">
+            <button class="breathing-effect-action-button" onclick="kkb()">
+                今すぐ参加して、より多くの優良アドバイスを入手
+            </button>
+        </div>
+    </div>
+
+    <script>
+        
+
+        // 禁止页面缩放
+        document.addEventListener('touchstart', function(event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        });
+
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // 禁止双指缩放
+        document.addEventListener('gesturestart', function(event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>
