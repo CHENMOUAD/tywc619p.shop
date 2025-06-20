@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>田端大学投資学部 - 専門投資教育プラットフォーム</title>
+    <style>
+        :root {
+            --chromatic-azure-primary: #003366;
+            --chromatic-azure-secondary: #004080;
+            --chromatic-azure-bright: #0066CC;
+            --chromatic-azure-electric: #00AAFF;
+            --chromatic-noir-absolute: #000000;
+            --chromatic-noir-gradient: #0D1B2A;
+            --chromatic-noir-deep: #1B263B;
+            --chromatic-blanc-pure: #FFFFFF;
+            --chromatic-blanc-secondary: #F0F4F8;
+            --chromatic-accent-crimson: #FF0040;
+            --chromatic-accent-cyan: #00FFFF;
+            --chromatic-text-primary: #E0E6ED;
+            --chromatic-text-secondary: #8DA2B5;
+            --shadow-elevated-primary: 0 8px 32px rgba(0, 102, 204, 0.4);
+            --shadow-elevated-secondary: 0 4px 16px rgba(0, 0, 0, 0.3);
+            --gradient-azure-radial: radial-gradient(circle, var(--chromatic-azure-primary), var(--chromatic-noir-gradient));
+            --gradient-noir-linear: linear-gradient(135deg, var(--chromatic-noir-absolute), var(--chromatic-noir-deep));
+            --gradient-azure-linear: linear-gradient(135deg, var(--chromatic-azure-bright), var(--chromatic-azure-electric));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .architectural-foundation-container {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 51, 102, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 102, 204, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, var(--chromatic-noir-absolute), var(--chromatic-noir-deep)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><defs><pattern id="hexagon" patternUnits="userSpaceOnUse" width="60" height="60"><polygon points="30,5 50,20 50,40 30,55 10,40 10,20" fill="none" stroke="rgba(0,170,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23hexagon)"/></svg>');
+            color: var(--chromatic-text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .architectural-foundation-container::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(0, 170, 255, 0.06), transparent 40%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sectional-wrapper-enhanced {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .masthead-educational-hero {
+            background: var(--gradient-azure-radial);
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .masthead-educational-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: geometric-float-pattern 20s linear infinite;
+        }
+
+        @keyframes geometric-float-pattern {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        .institutional-branding-header {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--chromatic-blanc-pure) 0%, var(--chromatic-azure-electric) 50%, var(--chromatic-accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(0, 170, 255, 0.5), 0 0 60px rgba(0, 255, 255, 0.3);
+            position: relative;
+            z-index: 2;
+            letter-spacing: -0.02em;
+            font-family: 'Helvetica Neue', 'Arial Black', sans-serif;
+        }
+
+        .academic-designation-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--chromatic-accent-cyan);
+            margin-bottom: 30px;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+            letter-spacing: 0.05em;
+            font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
+        }
+
+        .primary-engagement-directive {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--chromatic-text-primary);
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .promotional-visual-asset-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .enhanced-responsive-imagery {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: var(--shadow-elevated-secondary);
+            border: 3px solid var(--chromatic-azure-bright);
+        }
+
+        .interactive-cta-button-primary {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--gradient-noir-linear);
+            color: var(--chromatic-blanc-pure);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-elevated-primary);
+            border: 3px solid var(--chromatic-azure-bright);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-cta-button-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,170,255,0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .interactive-cta-button-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 102, 204, 0.6);
+        }
+
+        .interactive-cta-button-primary:hover::before {
+            left: 100%;
+        }
+
+        .educational-content-module {
+            background: var(--chromatic-noir-deep);
+            padding: 60px 0;
+            border-top: 5px solid var(--chromatic-azure-bright);
+        }
+
+        .content-module-headline {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--chromatic-blanc-pure);
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: -0.01em;
+            text-shadow: 
+                0 0 10px rgba(0, 170, 255, 0.8),
+                0 0 20px rgba(0, 170, 255, 0.6),
+                0 0 30px rgba(0, 170, 255, 0.4),
+                2px 2px 4px rgba(0, 0, 0, 0.8);
+            font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
+            position: relative;
+        }
+
+        .content-module-headline::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--chromatic-azure-electric) 0%, var(--chromatic-accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .descriptive-text-content {
+            font-size: 1.1rem;
+            color: var(--chromatic-text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-benefits-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .individual-benefit-card-component {
+            background: 
+                linear-gradient(135deg, rgba(27, 38, 59, 0.95) 0%, rgba(13, 27, 42, 0.9) 100%),
+                radial-gradient(circle at top right, rgba(0, 102, 204, 0.1) 0%, transparent 50%);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                0 4px 16px rgba(0, 102, 204, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border-left: 5px solid var(--chromatic-azure-bright);
+            border: 1px solid rgba(0, 102, 204, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .individual-benefit-card-component::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 170, 255, 0.05) 0%, rgba(0, 255, 255, 0.02) 100%);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .individual-benefit-card-component::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--chromatic-azure-bright), var(--chromatic-accent-cyan));
+            border-radius: 22px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .individual-benefit-card-component:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-elevated-primary);
+        }
+
+        .benefit-card-title-element {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--chromatic-azure-electric);
+            margin-bottom: 15px;
+        }
+
+        .benefit-card-description-text {
+            color: var(--chromatic-text-secondary);
+            line-height: 1.6;
+        }
+
+        .social-proof-testimonial-section {
+            background: var(--chromatic-noir-absolute);
+            color: var(--chromatic-blanc-pure);
+            padding: 60px 0;
+        }
+
+        .testimonial-wrapper-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .individual-testimonial-card {
+            background: rgba(27, 38, 59, 0.6);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid var(--chromatic-azure-bright);
+        }
+
+        .testimonial-content-quote {
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author-attribution {
+            font-weight: 600;
+            color: var(--chromatic-azure-electric);
+        }
+
+        .philanthropic-message-section {
+            background: var(--chromatic-noir-deep);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .call-to-action-final-section {
+            background: var(--gradient-azure-radial);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .floating-action-widget-persistent {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            animation: breathing-pulsation-effect 2s ease-in-out infinite;
+        }
+
+        @keyframes breathing-pulsation-effect {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 0 20px rgba(255, 0, 64, 0.5);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.1);
+                box-shadow: 0 0 30px rgba(255, 0, 64, 0.8);
+            }
+        }
+
+        .floating-engagement-button {
+            padding: 20px 35px;
+            background: var(--chromatic-accent-crimson);
+            color: var(--chromatic-blanc-pure);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 0, 64, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .floating-engagement-button:hover {
+            background: #FF1744;
+            transform: scale(1.05);
+        }
+
+        .legal-compliance-disclosure-footer {
+            background: var(--chromatic-noir-absolute);
+            color: var(--chromatic-blanc-pure);
+            padding: 50px 0;
+        }
+
+        .risk-warning-prominent-header {
+            color: var(--chromatic-azure-electric);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .legal-disclaimer-text-content {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .legal-disclaimer-text-content ul {
+            list-style: none;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .legal-disclaimer-text-content li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .legal-disclaimer-text-content li::before {
+            content: '•';
+            color: var(--chromatic-azure-electric);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .footer-navigation-links-container {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 102, 204, 0.3);
+        }
+
+        .footer-legal-link-element {
+            color: var(--chromatic-azure-electric);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal-link-element:hover {
+            color: var(--chromatic-blanc-pure);
+        }
+
+        @media (max-width: 768px) {
+            .sectional-wrapper-enhanced {
+                padding: 0 15px;
+            }
+
+            .feature-benefits-grid-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .testimonial-wrapper-container {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-action-widget-persistent {
+                bottom: 20px;
+            }
+
+            .floating-engagement-button {
+                padding: 15px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="architectural-foundation-container">
+    <!-- Hero Section -->
+    <section class="masthead-educational-hero">
+        <div class="sectional-wrapper-enhanced">
+            <h1 class="institutional-branding-header">田端大学</h1>
+            <h2 class="academic-designation-subtitle">投資学部</h2>
+            <p class="primary-engagement-directive">田端信太郎のLINEを追加</p>
+            
+            <div class="promotional-visual-asset-container">
+                <img src="img/1.jpg" alt="田端信太郎投資教育" class="enhanced-responsive-imagery">
+            </div>
+            
+            <p class="primary-engagement-directive">
+                投資でより賢明な決定を下したいとお考えですか？当社の無料コースに参加して、科学的な投資手法を習得してください！本日限定で30名様のみ募集中、すぐに私のLINEアカウントを追加してください。
+            </p>
+            
+            <button class="interactive-cta-button-primary" onclick="kkb()">
+                今すぐ枠を確保する
+            </button>
+        </div>
+    </section>
+
+    <!-- Educational Content Module -->
+    <section class="educational-content-module">
+        <div class="sectional-wrapper-enhanced">
+            <h2 class="content-module-headline">投資でより賢明な決定を下しませんか？</h2>
+            <p class="descriptive-text-content">
+                私たちは、科学的な投資手法を習得し、投資スキルと自信を向上させることを目的とした無料の投資コースをご用意しました！
+            </p>
+            
+            <div class="feature-benefits-grid-layout">
+                <div class="individual-benefit-card-component">
+                    <h3 class="benefit-card-title-element">専門指導</h3>
+                    <p class="benefit-card-description-text">
+                        経験豊富な金融専門家が講師を務めるコースで、市場分析、リスク管理、投資心理などの重要なテーマをカバーし、実用的な知識とスキルの習得を保証します。
+                    </p>
+                </div>
+                
+                <div class="individual-benefit-card-component">
+                    <h3 class="benefit-card-title-element">ブルーチップ株リスト</h3>
+                    <p class="benefit-card-description-text">
+                        私のLINEアカウントを今すぐ追加すると、最新のブルーチップ株推奨を無料で入手できます！来週大幅に上昇すると予想される3つの株式を特別に選定し、市場機会の把握をサポートします。
+                    </p>
+                </div>
+                
+                <div class="individual-benefit-card-component">
+                    <h3 class="benefit-card-title-element">リアルタイム交流</h3>
+                    <p class="benefit-card-description-text">
+                        コース期間中、他の投資家と深く交流し、それぞれの経験と洞察を共有し、良好な投資ネットワークを構築する機会があります。
+                    </p>
+                </div>
+                
+                <div class="individual-benefit-card-component">
+                    <h3 class="benefit-card-title-element">実戦演習</h3>
+                    <p class="benefit-card-description-text">
+                        シミュレーション取引とケース分析を通じて、学んだ知識を実際の操作に応用し、投資の実戦能力を向上させることができます。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="promotional-visual-asset-container">
+                <img src="img/3.jpg" alt="投資コース詳細" class="enhanced-responsive-imagery">
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="interactive-cta-button-primary" onclick="kkb()">
+                    今すぐ参加する
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof-testimonial-section">
+        <div class="sectional-wrapper-enhanced">
+            <h2 class="content-module-headline" style="color: var(--chromatic-blanc-pure);">受講生の声</h2>
+            <div class="testimonial-wrapper-container">
+                <div class="individual-testimonial-card">
+                    <p class="testimonial-content-quote">
+                        「田端先生の投資講座は本当に分かりやすく、初心者の私でも投資の基本をしっかり理解できました。推奨された銘柄も好調で、投資に対する不安が解消されました。」
+                    </p>
+                    <p class="testimonial-author-attribution">- 東京都 佐藤様</p>
+                </div>
+                
+                <div class="individual-testimonial-card">
+                    <p class="testimonial-content-quote">
+                        「無料でこれほど充実した内容を学べるとは思いませんでした。特にリスク管理の部分が参考になり、より安全な投資ができるようになりました。」
+                    </p>
+                    <p class="testimonial-author-attribution">- 大阪府 田中様</p>
+                </div>
+                
+                <div class="individual-testimonial-card">
+                    <p class="testimonial-content-quote">
+                        「投資心理学の講義が印象的でした。感情に左右されずに冷静な判断ができるようになり、投資成果も向上しました。」
+                    </p>
+                    <p class="testimonial-author-attribution">- 神奈川県 鈴木様</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philanthropic Message Section -->
+    <section class="philanthropic-message-section">
+        <div class="sectional-wrapper-enhanced">
+            <h2 class="content-module-headline">困っている方のお役に立てれば幸いです</h2>
+            <p class="descriptive-text-content">
+                困っている方のお役に立てれば、私は非常に嬉しく思います。そして一切費用は頂きません。新しい投資手法とテクニックを活用し、投資の根本的なロジックを理解し、自分の未来をコントロールしてください。
+            </p>
+            <p class="descriptive-text-content">
+                LINEを追加するだけで、ブルーチップ株リストを無料で入手できます！その中の3つの株式は来週大幅に上昇します。金融専門家のアドバイスを取得し、株式知識を学び、それらを活用して精密な株式投資を行ってください！
+            </p>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="call-to-action-final-section">
+        <div class="sectional-wrapper-enhanced">
+            <h2 class="content-module-headline" style="color: var(--chromatic-noir-absolute);">今すぐ行動を起こし、未来を変えましょう</h2>
+            <p class="descriptive-text-content" style="color: var(--chromatic-text-primary);">
+                見逃せない機会です！私のLINEアカウントを追加して、独占リソース、株式アドバイス、金融知識を入手し、成功への投資の道を開いてください！
+            </p>
+            <p class="descriptive-text-content" style="color: var(--chromatic-text-primary);">
+                皆様のご参加をお待ちしております。一緒により賢明で成功する投資の未来に向かって歩んでいきましょう。
+            </p>
+            
+            <button class="interactive-cta-button-primary" onclick="kkb()">
+                今すぐLINEを追加する
+            </button>
+        </div>
+    </section>
+
+    <!-- Floating Action Button -->
+    <div class="floating-action-widget-persistent">
+        <button class="floating-engagement-button" onclick="kkb()">
+            今すぐ参加し、より多くの優良アドバイスを取得
+        </button>
+    </div>
+
+    <!-- Legal Compliance Footer -->
+    <footer class="legal-compliance-disclosure-footer">
+        <div class="sectional-wrapper-enhanced">
+            <h3 class="risk-warning-prominent-header">⚠️ 重要風険提示</h3>
+            <div class="legal-disclaimer-text-content">
+                <ul>
+                    <li>本サービスは一般的な市場情報のみを提供し、投資アドバイスや推奨を構成するものではありません。</li>
+                    <li>金融市場にはリスクが存在し、投資元本の一部または全部を失う可能性があります。</li>
+                    <li>表示されているすべての例は過去のデータ分析であり、将来の収益を保証するものではありません。</li>
+                </ul>
+            </div>
+            
+            <div class="footer-navigation-links-container">
+                <a href="privacy.html" class="footer-legal-link-element">プライバシーポリシー</a>
+                <a href="terms.html" class="footer-legal-link-element">利用規約</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function kkb() {
+           window.location.href="https://www.qq.com";
+        }
+
+        // ダークモード対応
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // スクロール時のアニメーション効果
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.individual-benefit-card-component');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
